@@ -4,18 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script
-            src="{% static "/js/jquery-3.3.1.min.js" %}"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-
+    <!-- Nav Bar-->
+    <link href="{% static "css/logo-nav.css" %}" rel="stylesheet">
     <title>Zomato</title>
+
 
     {% block head %}
     {% endblock %}
@@ -25,5 +20,8 @@
 {% block content %}
 {% endblock %}
 
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
 </body>
 </html>

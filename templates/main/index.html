@@ -1,36 +1,77 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
+{% block head %}
+    <style>
+        body {
+            background: url("{% static "img/bg-06.jpg" %}");
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
 
-    <span class="red-text text-lighten-2"><h3 align="center"> Welcome {{ username| title }}, </h3>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static "img/zomato-logo1.png" %}" width="150" height="30" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'restaurants' %}?filter=rating&reverse=False">All Restaurants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'addrestaurant' %}">Add Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <br>
+        <h1 class="text-center">Welcome {{ username| title }},</h1>
+        <br>
+        <h5 class="text-center">Here are a few quick actions:</h5>
         <br>
         <br>
-    <h6 align="center">Here are a few quick actions:</h6></span>
-
-<div class="row">
-<a href ="{% url 'restaurants' %}?filter=rating&reverse=False">
-
-    <div class="col s6 m6">
-      <div class="card">
-        <div class="card-image">
-          <img src="http://www.starwoodhotels.com/pub/media/1900/mer1900re.156604_xx.jpg">
-          <span class="card-title"><h4>Find the best restaurants, cafés, and bars<br><br><br></h4></span>
-        </div>
-      </div>
+        <br>
+        <br>
     </div>
-  </a>
 
-
-<a href ="{% url 'addrestaurant' %}">
-    <div class="col s6 m6">
-      <div class="card">
-        <div class="card-image">
-          <img src="http://www.starwoodhotels.com/pub/media/1900/mer1900re.157004_xx.jpg">
-            <span class="card-title"><h4>Restaurant Owner? <br> Showcase your hotel to more than 10,000 viewers</h4></span>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+            <a href ="{% url 'restaurants' %}?filter=rating&reverse=False">
+                <img src="{% static "img/list.jpg" %}">
+                <div class="carousel-caption">
+                    <h2 class="text-white">Find the best Restaurants, Cafés and Bars</h2>
+                </div>
+            </a>
         </div>
-      </div>
-    </div>
-</a>
+        <div class="col-sm-5">.
+            <a href ="{% url 'addrestaurant' %}">
+                <img src="{% static "img/add.jpg" %}">
+                <div class="carousel-caption">
+                    <h2 class="text-white">Restaurant Owner? <br> Showcase your hotel to more than 10,000 viewers</h2>
+                </div>
+            </a>
+        </div>
     </div>
 
 {% endblock %}
