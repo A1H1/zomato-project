@@ -1,41 +1,64 @@
-{% extends 'main/base.html' %}
-{% block content %}
+{% load static %}
+{% load widget_tweaks %}
 
+<!DOCTYPE html>
+<html lang="en">
 
-<br>
-<br>
-<br>
-<center>Sign up to continue...</center>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-<div class="container">
+    <!-- Title Page-->
+    <title>Registration</title>
 
+    <!-- Icons font CSS-->
+    <link href="{% static "extra/mdi-font/css/material-design-iconic-font.min.css" %}" rel="stylesheet" media="all">
+    <link href="{% static "extra/font-awesome-4.7/css/font-awesome.min.css" %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
-        <div class="card">
-    <div class="card-content">
-         <form action="" method="post">
+    <!-- Main CSS-->
+    <link href="{% static "css/main.css" %}" rel="stylesheet" media="all">
+</head>
 
-            {% csrf_token %}
+<body>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
 
-            {% for field in form %}
-
-                <div class = "input-field col s3">
-
-                    {{ field }}
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-
+                        <div class="input-group">
+                            {% render_field form.username class="input--style-2" placeholder="Username" %}
+                        </div>
+                        <div class="input-group">
+                            {% render_field form.password1 class="input--style-2" placeholder="Password" %}
+                        </div>
+                        <div class="input-group">
+                            {% render_field form.password2 class="input--style-2" placeholder="Password Confirmation" %}
+                        </div>
+                        {{ form.errors }}
+                        <div class="p-t-30">
+                            <button type="submit" class="btn btn--radius btn--green">SIGN UP</button>
+                        </div>
+                    </form>
                 </div>
-
-            {% endfor %}
-
-<center>
-   <div class="col s4">
-                <button type="submit" class="waves-effect waves-light btn red">Sign Up</button>
             </div>
-</center>
-         </form>
-
+        </div>
     </div>
 
-      </div>
-</div>
-{% endblock %}
+    <!-- Jquery JS-->
+    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static "js/global.js" %}"></script>
+
+</body>
+</html>
